@@ -18,6 +18,7 @@ public class Consumer {
 	 * Author: Victor Silva
 	 */
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws NamingException, JMSException {
 	
 		/*
@@ -28,7 +29,7 @@ public class Consumer {
 		
 		InitialContext context = new InitialContext();
 
-		ConnectionFactory cf = (ConnectionFactory)context.lookup("ConnectionFactory");
+		ConnectionFactory cf = (ConnectionFactory) context.lookup("ConnectionFactory");
 		
 		Connection conexao = cf.createConnection();
 
