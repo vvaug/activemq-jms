@@ -1,5 +1,7 @@
 package br.com.caelum.jms;
 
+import java.util.Date;
+
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -33,7 +35,7 @@ public class TopicProducer {
 		
 		MessageProducer producer = session.createProducer(topic);
 		
-		Message text = session.createTextMessage("Hey...new MESSAGE!");
+		Message text = session.createTextMessage("Topic message send: " + new Date());
 		
 		producer.send(text);
 		

@@ -12,7 +12,7 @@ import javax.jms.Topic;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-public class TopicConsumer {
+public class TopicConsumer2 {
 
 	/*
 	 * Author: Victor Silva
@@ -25,14 +25,14 @@ public class TopicConsumer {
 		ConnectionFactory factory = (ConnectionFactory) context.lookup("ConnectionFactory");
 		
 		connection = factory.createConnection();
-		connection.setClientID("conexaoEstoque");
+		connection.setClientID("conexaoEstoqueFilial");
 		connection.start();
 		
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		Topic topic = (Topic) context.lookup("loja");
 		
 		//MessageConsumer consumer = session.createConsumer(topic);
-		MessageConsumer consumer = session.createDurableSubscriber(topic, "consumidorDeTopico1");
+		MessageConsumer consumer = session.createDurableSubscriber(topic, "consumidorDeTopico2");
 		
 		consumer.setMessageListener(new MessageListener() {
 			@Override

@@ -1,5 +1,7 @@
 package br.com.caelum.jms;
 
+import java.util.Date;
+
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -33,9 +35,11 @@ public class Producer {
 		
 		MessageProducer messageProducer = session.createProducer(queue);
 	    
-        Message message = session.createTextMessage("I'm sending a new Message!");
+        Message message = session.createTextMessage("Message Send: " + new Date());
         
+        System.out.println("Sending message...");
         messageProducer.send(message);
+        System.out.println("Message send...");
         
         session.close();
         connection.close();
